@@ -314,7 +314,6 @@ button.color-gradient{
 	bottom: 4px;
 }
 
-/* ///// */
 .choose-file{
     position: relative;
     overflow: hidden;
@@ -390,8 +389,56 @@ button.color-gradient{
   .five:before{background:rgba(83, 119, 122, 0.7)}
   .six:before{background:rgba(119, 146, 174, 0.7)}
 
-  /* ACCORION */
- 
+  /* Modal started */
+  .menu-modal {
+            border-radius: 15px;
+            z-index: 10;
+            position: absolute;
+            background-color: #ffffff;
+            border: solid 1px black;
+            display: block;
+            top: 250px;
+            left: 24%;
+            padding: 15px 20px 120px 40px;
+            width: 55%;
+            transition: ease-in-out;
+            transform: translate(0%, -25%) scale(0);
+        }
+
+        #overlay {
+            position: fixed;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            pointer-events: none;
+            transition: 200ms ease-in-out;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+            z-index: 3;
+        }
+
+        .modal-close {
+            position: absolute;
+        }
+
+        #modal.active {
+            transform: translate(0%, -30%) scale(1);
+        }
+
+
+        .close-button {
+            border: none;
+            font-size: 22px;
+            background: none;
+            cursor: pointer;
+            padding: 5px;
+        }
 
 @media(min-width:768px) {
 
@@ -438,79 +485,3 @@ button.color-gradient{
    
     .dropdown-profil{display: none;}
 }
-
-/* ///////////// */
-/* <table class="table table-borderless table-hover"
-id="editableTable">
-<thead>
-    <tr>
-        <th>Fənn</th>
-        <th>Faiz göstərici</th>
-        <th>Tarix</th>
-        <th>Davamiyyet</th>
-        <th>
-            <button
-                class="btn btn-default pull-right add-row"><i
-                    class="fa fa-plus"
-                    style="font-size: 15px;"></i>
-                Yeni setir</button>
-        </th>
-    </tr>
-</thead>
-<tbody>
-    <tr data-id="1">
-        <td data-field="name">Az Dili</td>
-        <td data-field="number">54%</td>
-        <td data-field="date">08/02/2021</td>
-        <td>
-            <div class="form-check ">
-                <input class="form-check-input"
-                    type="checkbox" value=""
-                    id="flexCheckDefault" />
-
-            </div>
-        </td>
-        <td>
-            <a class="button button-small edit mx-3"
-                title="Edit">
-                <i class="fas fa-pencil-alt"
-                    style="color:#616676;"></i>
-            </a>
-
-            </a>
-
-            <a class="button button-small edit"
-                title="Delete">
-                <i class="fa fa-trash"
-                    style="color:#646772;"></i>
-            </a>
-        </td>
-    </tr>
-    <tr data-id="2">
-        <td data-field="name">Riyaziyyat</td>
-        <td data-field="number">87%</td>
-        <td data-field="date">08/05/2021</td>
-        <td>
-            <div class="form-check ">
-                <input class="form-check-input"
-                    type="checkbox" value=""
-                    id="flexCheckDefault" />
-
-            </div>
-        </td>
-        <td>
-            <a class="button button-small edit mx-3"
-                title="Edit">
-                <i class="fas fa-pencil-alt"
-                    style="color:#616676;"></i>
-            </a>
-            <a class="button button-small edit"
-                title="Delete">
-                <i class="fa fa-trash"
-                    style="color:#616676;"></i>
-            </a>
-        </td>
-    </tr>
-
-</tbody>
-</table> */
