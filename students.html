@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta class="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/css/style.css">
+    <link rel="stylesheet" href="style/css/bootstrap.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;700;900&display=swap"
+        rel="stylesheet">
+
+    <title>Okabi.net</title>
+
+    <style>
+        /*----------Modal started--------*/
+        .menu-modal {
+            border-radius: 15px;
+            z-index: 10;
+            position: absolute;
+            background-color: #ffffff;
+            border: solid 1px black;
+            display: block;
+            top: 250px;
+            left: 24%;
+            padding: 15px 20px 120px 40px;
+            width: 55%;
+            transition: ease-in-out;
+            transform: translate(0%, -25%) scale(0);
+        }
+
+        #overlay {
+            position: fixed;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, .5);
+            pointer-events: none;
+            transition: 200ms ease-in-out;
+        }
+
+        #overlay.active {
+            opacity: 1;
+            pointer-events: all;
+            z-index: 3;
+        }
+
+        .modal-close {
+            position: absolute;
+        }
+
+        #modal.active {
+            transform: translate(0%, -30%) scale(1);
+        }
+
+
+        .close-button {
+            border: none;
+            font-size: 22px;
+            background: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body class="bg-img">
+    <div class="" id="overlay"></div>
+    <div id="wrapper">
+
+        <div id="sidebar-wrapper">
+            <a href="#" class="text-decoration-none">
+                <span class=" m-5 d-block fs-md-25  arial-font font-weight-bold text-white">okabi.net</span>
+            </a>
+            <ul class=" my-5 p-0 sidebar-nav">
+                <li class="  my-5 sidebar-bg-hover ">
+                    <a href="./index.html">
+                        <img src="./style/img/home.png" alt="" class="ml-5 p-2">
+                        <span class=" fs-lg-13 monserrat text-white ml-3 ">Ana səhifə</span>
+                    </a>
+                </li>
+                <li class=" mb-5  ">
+                    <a href="./prof.html" class=" text-decoration-none ">
+                        <img src="./style/img/user.png" alt="" class="ml-5 p-2">
+                        <span class=" fs-lg-13 monserrat text-white ml-3 ">Profil</span>
+                    </a>
+                </li>
+                <li class=" mb-5  ">
+                    <a href="./mypayment.html" class=" text-decoration-none ">
+                        <img src="./style/img/payment.png" alt="" class="ml-5 p-2">
+                        <span class=" fs-lg-13 monserrat text-white ml-3 ">Hesabım</span>
+                    </a>
+                </li>
+                <li class="mb-5 ">
+                    <a href="./statistic.html" class="text-decoration-none">
+                        <img src="./style/img/statistcs.png" alt="" class="ml-5 p-2">
+                        <span class="fs-lg-13 monserrat text-white ml-3">Statistika</span>
+                    </a>
+                </li>
+                <li class=" mb-5 ">
+                    <a href="./students.html" class="text-decoration-none">
+                        <img src="./style/img/users.png " alt="" class="ml-5 p-2">
+                        <span class="fs-lg-13  monserrat text-white  ml-3 ">Tələbələr</span>
+                    </a>
+                </li>
+
+                <li class="mb-5 ">
+                    <a href="#" class="text-decoration-none ">
+                        <img src="./style/img/setting.png" alt="" class="ml-5 p-2">
+                        <span class="fs-lg-13 monserrat text-white ml-3 ">Ayarlar</span>
+                    </a>
+                </li>
+
+            </ul>
+            <div class=" mt-5 d-inline-block">
+                <div class=" mt-5 p-3 mx-3 d-inline-block text-center border-top border-bottom">
+                    <img src="./style/img/marginalia-working copy.png" class="object-fit w-75" alt="">
+                    <span class="text-light font-weight-bold d-block my-3">7/24 Bizimlə əlaqədə</span>
+                    <a href=""><img src="./style/img/twitter.png" alt=""></a>
+                    <a href=""><img src="./style/img/facebook.png" alt=""></a>
+                    <a href=""><img src="./style/img/googleplus.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="container-fluid  mb-5">
+                            <div class="row my-4 align-items-center  d-flex justify-content-between">
+                                <div class="col-lg-4">
+                                    <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><img
+                                            src="./style/img/menu.png" alt=""></a>
+                                    <div class="search d-inline">
+                                        <div>
+                                            <input type="text" placeholder="axtaris" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-5 ">
+                                    <ul
+                                        class="nav d-none d-lg-flex justify-content-around align-items-center navbar-top-links navbar-right">
+                                        <li class="list-unstyled justify-content-center">
+                                            <a href="./login.html" class="text-decoration-none">
+                                                <img src="./style/img/login.png" alt="">
+                                                <span class="fs-lg-13  monserrat text-dark ">Daxil Olun</span>
+                                            </a>
+                                        </li>
+                                        <li class="list-unstyled  justify-content-center">
+                                            <a href="./signup.html" class="text-decoration-none">
+                                                <img src="./style/img/register-user.png" alt="">
+                                                <span class="fs-lg-13  monserrat text-dark ">Qeydiyyat</span>
+                                            </a>
+                                        </li>
+                                        <li class="dropdown">
+                                            <a class="dropdown-toggle text-decoration-none text-muted"
+                                                data-toggle="dropdown" href="#" aria-expanded="false">Az
+                                            </a>
+                                            <ul class="dropdown-menu px-2 dropdown-user">
+                                                <li><a href="#" class="text-decoration-none text-muted fs-lg-13">
+                                                        Az</a>
+                                                </li>
+                                                <li><a href="#" class="text-decoration-none text-muted fs-lg-13">
+                                                        Rus</a>
+                                                </li>
+
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid my-5">
+                <div class="menu-modal  w-75" id="modal">
+                    <div style="display:block; text-align:right;">
+                        <span id="btn_close" class="close-button"> &times;</span>
+                    </div>
+                    <div id="modal_body" class="modal-body">
+
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col-12">
+                        <div class="card show">
+                            <div class="card-block card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-hover">
+                                        <thead class="table-borderless ">
+                                            <td>#</td>
+                                            <td class="">Ad</td>
+                                            <td class="">Soyad</td>
+                                            <td class="">Məlumat</td>
+
+                                        </thead>
+
+                                        <tbody>
+                                            <tr class="position-relative">
+                                                <td>1</td>
+                                                <td>Ali</td>
+                                                <td>Aliyev</td>
+                                                <td class="showInfo"><img style="cursor: pointer;"
+                                                        src="./style/img/edit.png" alt="" class=""></td>
+                                                <td class="d-none">
+
+                                                    <div class="container-fluid">
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <table class="table table-borderless table-hover"
+                                                                    id="editableTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fənn</th>
+                                                                            <th>Faiz göstərici</th>
+                                                                            <th>Tarix</th>
+                                                                            <th>Davamiyyet</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr id="row1">
+                                                                            <td data-field="name" id="name_row1">Az Dili
+                                                                            </td>
+                                                                            <td data-field="number" id="number_row1">54%
+                                                                            </td>
+                                                                            <td data-field="date" id="date_row1">
+                                                                                08/02/2021</td>
+                                                                            <td>
+                                                                                <div class="form-check ">
+                                                                                    <input class="form-check-input"
+                                                                                        type="checkbox" value=""
+                                                                                        id="flexCheckDefault" />
+
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a id="edit_button1"
+                                                                                    class="button edit button-small edit mr-3"
+                                                                                    onclick="edit_row('1')"
+                                                                                    title="Edit">
+                                                                                    <i class="fas fa-pencil-alt"
+                                                                                        style="color:#616676;"></i>
+                                                                                </a>
+
+                                                                                </a>
+                                                                                <a class="button button-small mr-3 save"
+                                                                                    id="save_button1"
+                                                                                    onclick="save_row('1')"
+                                                                                    title="save">
+                                                                                    <i class="far fa-save"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                                <a class="button button-small delete"
+                                                                                    onclick="delete_row('1')"
+                                                                                    title="delete">
+                                                                                    <i class="fa fa-trash"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr id="row2">
+                                                                            <td data-field="name" id="name_row2">Az Dili
+                                                                            </td>
+                                                                            <td data-field="number" id="number_row2">54%
+                                                                            </td>
+                                                                            <td data-field="date" id="date_row2">
+                                                                                08/02/2021</td>
+                                                                            <td>
+                                                                                <div class="form-check ">
+                                                                                    <input class="form-check-input"
+                                                                                        type="checkbox" value=""
+                                                                                        id="flexCheckDefault" />
+
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a id="edit_button2"
+                                                                                    class="button edit button-small edit mr-3"
+                                                                                    onclick="edit_row('2')"
+                                                                                    title="Edit">
+                                                                                    <i class="fas fa-pencil-alt"
+                                                                                        style="color:#616676;"></i>
+                                                                                </a>
+
+                                                                                </a>
+                                                                                <a class="button button-small mr-3 save"
+                                                                                    id="save_button2"
+                                                                                    onclick="save_row('2')"
+                                                                                    title="save">
+                                                                                    <i class="far fa-save"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                                <a class="button button-small delete"
+                                                                                    onclick="delete_row('2')"
+                                                                                    title="delete">
+                                                                                    <i class="fa fa-trash"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <table class="table table-hover">
+                                                                    <thead class="table-borderless ">
+                                                                        <th>id</th>
+                                                                        <th>Cins</th>
+                                                                        <th class="">Yaş</th>
+                                                                        <th class="">Mobil nömrə</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="position-relative">
+                                                                            <td>5</td>
+                                                                            <td data-field="sex">Kişi</td>
+                                                                            <td data-field="age">15</td>
+                                                                            <td data-field="number">
+                                                                                (+994)505005050
+
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-5">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" id="usr">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="dropdown">
+                                                                    <button class="btn  dropdown-toggle" type="button"
+                                                                        data-toggle="dropdown">Dropdown
+                                                                        <span class="caret"></span></button>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control" rows="5"
+                                                                        id="comment"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
+                                                </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Adil</td>
+                                                <td>Memmedov</td>
+                                                <td class="showInfo"><img style="cursor: pointer;"
+                                                        src="./style/img/edit.png" alt="" class=""></td>
+                                                <td class="d-none">
+                                                    <div class="container-fluid">
+
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <table class="table table-borderless table-hover"
+                                                                    id="editableTable">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th>Fənn</th>
+                                                                            <th>Faiz göstərici</th>
+                                                                            <th>Tarix</th>
+                                                                            <th>Davamiyyet</th>
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr id="row1">
+                                                                            <td data-field="name" id="name_row1">Az Dili
+                                                                            </td>
+                                                                            <td data-field="number" id="number_row1">54%
+                                                                            </td>
+                                                                            <td data-field="date" id="date_row1">
+                                                                                08/02/2021</td>
+                                                                            <td>
+                                                                                <div class="form-check ">
+                                                                                    <input class="form-check-input"
+                                                                                        type="checkbox" value=""
+                                                                                        id="flexCheckDefault" />
+
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a id="edit_button1"
+                                                                                    class="button edit button-small edit mr-3"
+                                                                                    onclick="edit_row('1')"
+                                                                                    title="Edit">
+                                                                                    <i class="fas fa-pencil-alt"
+                                                                                        style="color:#616676;"></i>
+                                                                                </a>
+
+                                                                                </a>
+                                                                                <a class="button button-small mr-3 save"
+                                                                                    id="save_button1"
+                                                                                    onclick="save_row('1')"
+                                                                                    title="save">
+                                                                                    <i class="far fa-save"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                                <a class="button button-small delete"
+                                                                                    onclick="delete_row('1')"
+                                                                                    title="delete">
+                                                                                    <i class="fa fa-trash"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <tr id="row2">
+                                                                            <td data-field="name" id="name_row2">Az Dili
+                                                                            </td>
+                                                                            <td data-field="number" id="number_row2">54%
+                                                                            </td>
+                                                                            <td data-field="date" id="date_row2">
+                                                                                08/02/2021</td>
+                                                                            <td>
+                                                                                <div class="form-check ">
+                                                                                    <input class="form-check-input"
+                                                                                        type="checkbox" value=""
+                                                                                        id="flexCheckDefault" />
+
+                                                                                </div>
+                                                                            </td>
+                                                                            <td>
+                                                                                <a id="edit_button2"
+                                                                                    class="button edit button-small edit mr-3"
+                                                                                    onclick="edit_row('2')"
+                                                                                    title="Edit">
+                                                                                    <i class="fas fa-pencil-alt"
+                                                                                        style="color:#616676;"></i>
+                                                                                </a>
+
+                                                                                </a>
+                                                                                <a class="button button-small mr-3 save"
+                                                                                    id="save_button2"
+                                                                                    onclick="save_row('2')"
+                                                                                    title="save">
+                                                                                    <i class="far fa-save"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                                <a class="button button-small delete"
+                                                                                    onclick="delete_row('2')"
+                                                                                    title="delete">
+                                                                                    <i class="fa fa-trash"
+                                                                                        style="color:#646772;"></i>
+                                                                                </a>
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                            <div class="col-md-12 ">
+                                                                <table class="table table-hover">
+                                                                    <thead class="table-borderless ">
+                                                                        <th>id</th>
+                                                                        <th>Cins</th>
+                                                                        <th class="">Yaş</th>
+                                                                        <th class="">Mobil nömrə</th>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr class="position-relative">
+                                                                            <td>5</td>
+                                                                            <td data-field="sex">Kişi</td>
+                                                                            <td data-field="age">15</td>
+                                                                            <td data-field="number">
+                                                                                (+994)505005050
+
+                                                                            </td>
+
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row mt-5">
+                                                            <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <input type="text" class="form-control" id="usr">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <div class="dropdown">
+                                                                    <button class="btn  dropdown-toggle" type="button"
+                                                                        data-toggle="dropdown">Dropdown
+                                                                        <span class="caret"></span></button>
+                                                                    <ul class="dropdown-menu">
+                                                                        <li><a href="#">1</a></li>
+                                                                        <li><a href="#">2</a></li>
+                                                                        <li><a href="#">3</a></li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-12">
+                                                                <div class="form-group">
+                                                                    <textarea class="form-control" rows="5"
+                                                                        id="comment"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <script src="https://kit.fontawesome.com/b99e675b6e.js">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous">
+
+            </script>
+        <script>
+            function edit_row(no) {
+                document.getElementById("edit_button" + no).style.display = "none";
+                document.getElementById("save_button" + no).style.display = "block";
+
+                var name = document.getElementById("name_row" + no);
+                var number = document.getElementById("number_row" + no);
+                var date = document.getElementById("date_row" + no);
+
+                var name_data = name.innerHTML;
+                var number_data = number.innerHTML;
+                var date_data = date.innerHTML;
+
+                name.innerHTML = "<input type='text' id='name_text" + no + "' value='" + name_data + "'>";
+                number.innerHTML = "<input type='text' id='number_text" + no + "' value='" + number_data + "'>";
+                date.innerHTML = "<input type='text' id='date_text" + no + "' value='" + date_data + "'>";
+            }
+
+            function save_row(no) {
+                var name_val = document.getElementById("name_text" + no).value;
+                var number_val = document.getElementById("number_text" + no).value;
+                var date_val = document.getElementById("date_text" + no).value;
+
+                document.getElementById("name_row" + no).innerHTML = name_val;
+                document.getElementById("number_row" + no).innerHTML = number_val;
+                document.getElementById("date_row" + no).innerHTML = date_val;
+
+                document.getElementById("edit_button" + no).style.display = "block";
+                document.getElementById("save_button" + no).style.display = "none";
+            }
+
+            function delete_row(no) {
+                document.getElementById("row" + no + "").outerHTML = "";
+            }
+
+            function add_row() {
+                var new_name = document.getElementById("new_name").value;
+                var new_number = document.getElementById("new_number").value;
+                var new_date = document.getElementById("new_date").value;
+                var new_date = document.getElementById("new_checkbox").value;
+
+
+                var table = document.getElementById("data_table");
+                var table_len = (table.rows.length) - 1;
+                var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='name_row" + table_len + "'>" + new_name + "</td><td id='number_row" + table_len + "'>" + new_number + "</td><td id='date_row" + table_len + "'>" + new_date + "</td><td><button type='button' id='edit_button" + table_len + "' value = 'Deyisdir' class='edit btn btn-outline-warning' onclick='edit_row(" + table_len + ")'>Deyisdir</button> <button type='button' id='save_button" + table_len + "' class='save btn btn-outline-warning' onclick='save_row(" + table_len + ")'>Saxla</button> <button type='button'  class='delete btn btn-outline-warning' onclick='delete_row(" + table_len + ")'>Sil</button></td></tr>";
+
+                document.getElementById("new_name").value = "";
+                document.getElementById("new_number").value = "";
+                document.getElementById("new_date").value = "";
+                document.getElementById("new_checkbox").value = "";
+
+
+
+            }
+
+            //  Menu Toogle
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            //
+
+
+            let showInfoButtons = document.getElementsByClassName("showInfo");
+            let overlay = document.getElementById("overlay");
+            let modall = document.getElementById("modal");
+            let modalBody = document.getElementById("modal_body");
+
+
+            $("#btn_close").click(function () {
+                overlay.classList.remove("active")
+                modall.classList.remove("active")
+
+            });
+
+            overlay.addEventListener("click", function () {
+                overlay.classList.remove("active")
+                modall.classList.remove("active")
+
+            });
+
+            for (let btnShowInfo of showInfoButtons) {
+                btnShowInfo.addEventListener("click", function () {
+
+                    modalBody.innerHTML = btnShowInfo.parentElement.lastElementChild.innerHTML;
+                    modall.classList.add("active")
+                    overlay.classList.add("active")
+                })
+            }
+
+            //Edit table
+            (function ($, window, document, undefined) {
+                var pluginName = "editable",
+                    defaults = {
+                        keyboard: true,
+                        dblclick: true,
+                        button: true,
+                        buttonSelector: ".edit",
+                        maintainWidth: true,
+                        dropdowns: {},
+                        edit: function () { },
+                        save: function () { },
+                        cancel: function () { }
+                    };
+
+                function editable(element, options) {
+                    this.element = element;
+                    this.options = $.extend({}, defaults, options);
+
+                    this._defaults = defaults;
+                    this._name = pluginName;
+
+                    this.init();
+                }
+
+                editable.prototype = {
+                    init: function () {
+                        this.editing = false;
+
+                        if (this.options.dblclick) {
+                            $(this.element)
+                                .css('cursor', 'pointer')
+                                .bind('dblclick', this.toggle.bind(this));
+                        }
+
+                        if (this.options.button) {
+                            $(this.options.buttonSelector, this.element)
+                                .bind('click', this.toggle.bind(this));
+                        }
+                    },
+
+                    toggle: function (e) {
+                        e.preventDefault();
+
+                        this.editing = !this.editing;
+
+                        if (this.editing) {
+                            this.edit();
+                        } else {
+                            this.save();
+                        }
+                    },
+
+                    edit: function () {
+                        var instance = this,
+                            values = {};
+
+                        $('td[data-field]', this.element).each(function () {
+                            var input,
+                                field = $(this).data('field'),
+                                value = $(this).text(),
+                                width = $(this).width();
+
+                            values[field] = value;
+
+                            $(this).empty();
+
+                            if (instance.options.maintainWidth) {
+                                $(this).width(width);
+                            }
+
+                            if (field in instance.options.dropdowns) {
+                                input = $('<select></select>');
+
+                                for (var i = 0; i < instance.options.dropdowns[field].length; i++) {
+                                    $('<option></option>')
+                                        .text(instance.options.dropdowns[field][i])
+                                        .appendTo(input);
+                                };
+
+                                input.val(value)
+                                    .data('old-value', value)
+                                    .dblclick(instance._captureEvent);
+                            } else {
+                                input = $('<input type="text" />')
+                                    .val(value)
+                                    .data('old-value', value)
+                                    .dblclick(instance._captureEvent);
+                            }
+
+                            input.appendTo(this);
+
+                            if (instance.options.keyboard) {
+                                input.keydown(instance._captureKey.bind(instance));
+                            }
+                        });
+
+                        this.options.edit.bind(this.element)(values);
+                    },
+
+                    save: function () {
+                        var instance = this,
+                            values = {};
+
+                        $('td[data-field]', this.element).each(function () {
+                            var value = $(':input', this).val();
+
+                            values[$(this).data('field')] = value;
+
+                            $(this).empty()
+                                .text(value);
+                        });
+
+                        this.options.save.bind(this.element)(values);
+                    },
+
+                    cancel: function () {
+                        var instance = this,
+                            values = {};
+
+                        $('td[data-field]', this.element).each(function () {
+                            var value = $(':input', this).data('old-value');
+
+                            values[$(this).data('field')] = value;
+
+                            $(this).empty()
+                                .text(value);
+                        });
+
+                        this.options.cancel.bind(this.element)(values);
+                    },
+
+                    _captureEvent: function (e) {
+                        e.stopPropagation();
+                    },
+
+                    _captureKey: function (e) {
+                        if (e.which === 13) {
+                            this.editing = false;
+                            this.save();
+                        } else if (e.which === 27) {
+                            this.editing = false;
+                            this.cancel();
+                        }
+                    }
+                };
+
+                $.fn[pluginName] = function (options) {
+                    return this.each(function () {
+                        if (!$.data(this, "plugin_" + pluginName)) {
+                            $.data(this, "plugin_" + pluginName,
+                                new editable(this, options));
+                        }
+                    });
+                };
+
+            })(jQuery, window, document);
+
+            editTable();
+
+            //custome editable starts
+            function editTable() {
+
+                $(function () {
+                    var pickers = {};
+
+                    $('table tr').editable({
+                        dropdowns: {
+                            sex: ['Kişi', 'Qadın']
+                        },
+                        edit: function (values) {
+                            $(".edit i", this)
+                                .removeClass(' fa-pencil-alt')
+                                .addClass('fa-save')
+                                .attr('title', 'Save');
+
+                            pickers[this] = new Pikaday({
+                                field: $("td[data-field=birthday] input", this)[0],
+                                format: 'MMM D, YYYY'
+                            });
+                        },
+                        save: function (values) {
+                            $(".edit i", this)
+                                .removeClass('fa-save')
+                                .addClass(' fa-pencil-alt')
+                                .attr('title', 'Edit');
+
+                            if (this in pickers) {
+                                pickers[this].destroy();
+                                delete pickers[this];
+                            }
+                        },
+                        cancel: function (values) {
+                            $(".edit i", this)
+                                .removeClass('fa-save')
+                                .addClass(' fa-pencil-alt')
+                                .attr('title', 'Edit');
+
+                            if (this in pickers) {
+                                pickers[this].destroy();
+                                delete pickers[this];
+                            }
+                        }
+                    });
+                });
+
+            }
+
+            $(".add-row").click(function () {
+                $("#editableTable").find("tbody tr:first").before("<tr><td data-field='name'></td><td data-field='name'></td><td data-field='name'></td><td data-field='name'></td><td><a class='button button-small edit' title='Edit'><i class='fas fa-pencil-alt'></i></a> <a class='button button-small' title='Delete'><i class='fa fa-trash'></i></a></td></tr>");
+                editTable();
+                setTimeout(function () {
+                    $("#editableTable").find("tbody tr:first td:last a[title='Edit']").click();
+                }, 200);
+
+                setTimeout(function () {
+                    $("#editableTable").find("tbody tr:first td:first input[type='text']").focus();
+                }, 300);
+
+                $("#editableTable").find("a[title='Delete']").unbind('click').click(function (e) {
+                    $(this).closest("tr").remove();
+                });
+
+            });
+
+            function myFunction() {
+
+            }
+
+            $("#editableTable").find("a[title='Delete']").click(function (e) {
+                var x;
+                if (confirm("Are you sure you want to delete entire row?") == true) {
+                    $(this).closest("tr").remove();
+                } else {
+
+                }
+            });
+
+        </script>
+
+</body>
+
+</html>
