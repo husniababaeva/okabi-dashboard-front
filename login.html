@@ -15,12 +15,98 @@
     <title>Okabi.net</title>
 </head>
 
-<body class="bg-img">
+<body class="bg-light  position-relative">
+    <div>
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-between ">
+                <div class="col-lg-5  col-xs-12 d-flex justify-content-center position-relative ">
+                    <div class="">
+                        <ul class="nav nav-pills nav-justified my-4 mx-5" id="ex1" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link font-weight-bold fs-md-25 borbot-col  text-purple-color"
+                                    id="tab-login" data-mdb-toggle="pill" href="./login.html" role="tab"
+                                    aria-controls="pills-login" aria-selected="true">Daxil ol</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link font-weight-bold fs-md-25 text-purple-color" id="tab-register"
+                                    data-mdb-toggle="pill" href="./signup.html" role="tab"
+                                    aria-controls="pills-register" aria-selected="false">Qeydiyyat</a>
+                            </li>
+                        </ul>
 
-    <div class="">
+                        <div class="tab-content m-5">
+                            <div class="tab-pane fade show active mx-5 my-5" id="pills-login" role="tabpanel"
+                                aria-labelledby="tab-login">
+                                <form>
+                                    <div class="form-outline mb-4">
+                                        <input type="number" id="loginSurname"
+                                            class="w-100 py-2 px-3 border-rounded box-shadow"
+                                            placeholder="Mobil nömrə" />
+                                    </div>
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="loginPassword"
+                                            class="w-100 py-2 px-3 box-shadow border-rounded" placeholder="Şifrə" />
+                                    </div>
+
+                                    <div class="row mb-4">
+                                        <div class="col-md-6 d-flex justify-content-center">
+
+                                            <div class="form-check pl-0 mb-3">
+                                                <input type="checkbox" class="form-check-input purple-color filled-in"
+                                                    id="new">
+                                                <label class="purple-color form-check-label small card-link-secondary"
+                                                    for="new">Meni xatirla</label>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-6 d-flex justify-content-center">
+                                            <a href="#!" class="text-purple-color text-decoration-none">Şifrəni
+                                                unutmusuz?</a>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" class="btn-hover m-0  btn-block color-gradient ">Daxil
+                                        olun</button>
+                                    <p class="text-center my-4 purple-color">ve ya</p>
+
+                                    <div class="text-center my-4">
+                                        <button type="button" class="btn icon-hover btn-floating mx-1">
+                                            <i class="fab fa-facebook-f text-purple-color"></i>
+                                        </button>
+
+                                        <button type="button" class="btn icon-hover btn-floating mx-1">
+                                            <i class="fab fa-google text-purple-color"></i>
+                                        </button>
+
+                                        <button type="button" class="btn icon-hover btn-floating mx-1">
+                                            <i class="fab fa-twitter text-purple-color"></i>
+                                        </button>
+
+                                        <button type="button" class="btn icon-hover btn-floating mx-1">
+                                            <i class="fab fa-github text-purple-color"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="text-center my-5">
+                                        <p class="purple-color"> Daha öncə qeydiyyatdan keçməmisinizsə
+                                            buraya <a href="./signup.html"
+                                                class="text-plum-color text-decoration-none ">daxil olun</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 w-100 p-0">
+                    <img src="./style/img/login-img.png" class="w-100 " alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="">           aA
         <div class="container">
             <div class="row">
-
                 <div class="col-12">
                     <div class="container">
                         <div class="row my-5 align-items-center d-flex justify-content-between">
@@ -29,14 +115,6 @@
                                     <span class=" font-weight-bold fs-md-25 text-purple-color">okabi.net</span>
                                 </a>
                             </div>
-                            <div class="col-6 d-flex justify-content-end">
-                                <div class="search d-inline">
-                                    <div>
-                                        <input type="text" placeholder="axtaris" required>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -64,19 +142,18 @@
                                     <form>
 
 
-                                        <!-- number -->
                                         <div class="form-outline mb-4">
-                                            <input type="number" id="loginSurname" class="form-control"
+                                            <input type="number" id="loginSurname" class="w-100 py-2 px-3 box-shadow"
                                                 placeholder="Mobil nömrə" />
                                         </div>
                                         <div class="form-outline mb-4">
-                                            <input type="password" id="loginPassword" class="form-control"
+                                            <input type="password" id="loginPassword" class="w-100 py-2 px-3 box-shadow"
                                                 placeholder="Şifrə" />
                                         </div>
 
                                         <div class="row mb-4">
                                             <div class="col-md-6 d-flex justify-content-center">
-                                                <!-- Checkbox -->
+                                              
                                                 <div class="form-check pl-0 mb-3">
                                                     <input type="checkbox"
                                                         class="form-check-input purple-color filled-in" id="new">
@@ -88,15 +165,12 @@
                                             </div>
 
                                             <div class="col-md-6 d-flex justify-content-center">
-                                                <!-- Simple link -->
                                                 <a href="#!" class="text-purple-color text-decoration-none">Şifrəni
                                                     unutmusuz?</a>
                                             </div>
                                         </div>
 
-                                        <!-- Register buttons -->
-
-                                        <button type="submit" class="btn-hover m-0  btn-block color-gradient disabled" >Daxil
+                                        <button type="submit" class="btn-hover m-0  btn-block color-gradient " >Daxil
                                             olun</button>
                                         <p class="text-center my-4 purple-color">ve ya</p>
 
@@ -129,50 +203,13 @@
                                 </div>
 
                         </div>
-                        <!-- Pills content -->
+                       
                     </div>
 
                 </div>
             </div>
         </div>
-
-        <footer class="bg-light-purple  footer mt-5">
-            <div class="container">
-                <div class="row  mt-2 pt-5">
-                    <div class="col-md-4 cl-sm-12">
-                        <a href="./index.html" class="text-decoration-none "><span
-                                class="font-weight-bold text-dark">okabi.net</span>
-                        </a>
-                    </div>
-                    <div class="col-md-4 cl-sm-12 text-center">
-                        <a href="./index.html" class="text-decoration-none fs-lg-13"><span class="text-muted">Bizimlə
-                                əlaqə</span>
-                        </a>
-    
-                        <a href="./index.html" class="text-decoration-none fs-lg-13"><span class="text-muted">İstifadəçi
-                                qaydaları</span>
-                        </a>
-                        <div class="my-2">
-                            <a href=""><img src="./style/img/google-play-badge (1).png" class="w-25  h-20" alt=""></a>
-                            <a href=""><img src="./style/img/app-story.png" class="w-25  h-20 " alt=""></a>
-                        </div>
-                    </div>
-                    <div class="col-md-4 cl-sm-12 d-flex justify-content-end">
-                        <div>
-                            <span class="text-muted d-block fs-lg-13">+994 050 50 50</span>
-                            <span class="text-muted d-block fs-lg-13">+994 555 55 55</span>
-                            <span class="text-muted d-block fs-lg-13">okabinet@gmail.com</span>
-                        </div>
-    
-                    </div>
-    
-                </div>
-                <hr style=" border-top: 1px solid rgb(238, 237, 237);">
-                <div class="text-center text-muted py-3 fs-lg-13">Okabi.net- online kabinet platforması. </div>
-            </div>
-        </footer>
-    
-    </div>
+    </div> -->
 
 
 
