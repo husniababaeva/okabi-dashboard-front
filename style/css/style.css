@@ -50,9 +50,10 @@ a{text-decoration: none;}
 .text-grey-color{color: rgb(175, 175, 175) !important;}
 .text-plum-color{color: plum;}
 
-.welcome{
-    height: 200px;
-    box-shadow: 0 3px 20px 0 #D2D5E8;
+.card{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    border-radius: 30px !important;
+    border: 0 !important;
 }
 
 .black-text-hover:hover{
